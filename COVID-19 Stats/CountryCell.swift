@@ -10,14 +10,18 @@ import UIKit
 
 class CountryCell: UITableViewCell {
 
-
-    @IBOutlet weak var countryCell: UILabel!
+    @IBOutlet weak var countryName: UILabel!
+    @IBOutlet weak var casesNumber: UILabel!
+    @IBOutlet weak var deathNumber: UILabel!
     
     
     
-    func addCountry(countryLabel: String){
+    
+    func addCountry(countryLabel: String, casesLabel: Int, deathLabel: Int){
         
-        countryCell.text = countryLabel
+        countryName.text = countryLabel
+        casesNumber.text = String(casesLabel)
+        deathNumber.text = String(deathLabel)
         
     }
 }
