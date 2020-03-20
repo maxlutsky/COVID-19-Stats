@@ -12,17 +12,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var countries: [String] = []
     var stats: [Stats] = []
-    
 
     override func viewDidLoad() {
     
         super.viewDidLoad()
         
-//        countries = ["United States", "Ukraine", "Italy", "Great Britain", "China", "Russia"]
-        
-        guard let url = URL(string: "https://corona.lmao.ninja/countries") else {return}
+        guard let url = URL(string: "https://corona.lmao.ninja/countries") else { return }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
         guard let dataResponse = data,
@@ -31,18 +27,18 @@ class ViewController: UIViewController {
                   return
                     
             }
-            do{
+            do {
                 //here dataResponse received from a network request
                 let jsonResponse = try JSONSerialization.jsonObject(with: dataResponse, options: [])
-//                print(jsonResponse)
-                guard let jsonArray = jsonResponse as? [[String: Any]] else {
-                      return
-                }
+                guard let jsonArray = jsonResponse as? [[String: Any]] else { return }
                 
                 for dic in jsonArray{
                     self.stats.append(Stats(dic))
                 }
-                print(self.stats[0])
+
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 
              } catch let parsingError {
                 print("Error", parsingError)
@@ -52,29 +48,27 @@ class ViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-//        print(jsonArray)
-        
     }
-
-
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
+        return stats.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let country = stats[indexPath.row].country
         let cases = stats[indexPath.row].cases
         let death = stats[indexPath.row].deaths
         
-        print(stats[indexPath.row])
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCellId") as! CountryCell
-        
         cell.addCountry(countryLabel: country, casesLabel: cases, deathLabel: death)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+        print(stats[indexPath.row])
     }
 }

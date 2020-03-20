@@ -18,7 +18,6 @@ class CountryCell: UITableViewCell {
     
     
     func addCountry(countryLabel: String, casesLabel: Int, deathLabel: Int){
-        
         countryName.text = countryLabel
         casesNumber.text = String(casesLabel)
         deathNumber.text = String(deathLabel)

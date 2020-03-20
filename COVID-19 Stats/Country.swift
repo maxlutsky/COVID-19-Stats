@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Stats:Decodable {
+struct Stats: Decodable {
     var country: String
     var cases: Int
     var deaths: Int
