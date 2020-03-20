@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5043B29C2424E1F100B2333F /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043B29B2424E1F100B2333F /* CountryCell.swift */; };
 		50B816782424B60D007CDE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B816772424B60D007CDE87 /* AppDelegate.swift */; };
 		50B8167A2424B60D007CDE87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B816792424B60D007CDE87 /* SceneDelegate.swift */; };
 		50B8167C2424B60D007CDE87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B8167B2424B60D007CDE87 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5043B29B2424E1F100B2333F /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		50B816742424B60D007CDE87 /* COVID-19 Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID-19 Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B816772424B60D007CDE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50B816792424B60D007CDE87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				50B816772424B60D007CDE87 /* AppDelegate.swift */,
 				50B816792424B60D007CDE87 /* SceneDelegate.swift */,
+				5043B29B2424E1F100B2333F /* CountryCell.swift */,
 				50B8167B2424B60D007CDE87 /* ViewController.swift */,
 				50B8167D2424B60D007CDE87 /* Main.storyboard */,
 				50B816802424B610007CDE87 /* Assets.xcassets */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5043B29C2424E1F100B2333F /* CountryCell.swift in Sources */,
 				50B8167C2424B60D007CDE87 /* ViewController.swift in Sources */,
 				50B816782424B60D007CDE87 /* AppDelegate.swift in Sources */,
 				50B8167A2424B60D007CDE87 /* SceneDelegate.swift in Sources */,
