@@ -17,10 +17,10 @@ class CountryCell: UITableViewCell {
     
     
     
-    func addCountry(countryLabel: String, casesLabel: Int, deathLabel: Int){
-        countryName.text = countryLabel
-        casesNumber.text = String(casesLabel)
-        deathNumber.text = String(deathLabel)
+    func addCountry(tempStat: Stats){
+        countryName.text = tempStat.country
+        casesNumber.text = String(tempStat.cases)
+        deathNumber.text = String(tempStat.deaths)
         
     }
 }

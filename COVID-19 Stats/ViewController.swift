@@ -15,9 +15,40 @@ class ViewController: UIViewController {
     var stats: [Stats] = []
 
     override func viewDidLoad() {
-    
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        requestData()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stats.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let country = stats[indexPath.row].country
+        let cases = stats[indexPath.row].cases
+        let death = stats[indexPath.row].deaths
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCellId") as! CountryCell
+        cell.addCountry(countryLabel: country, casesLabel: cases, deathLabel: death)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+        print(stats[indexPath.row])
+    }
+}
+
+extension ViewController{
+    
+    func requestData(){
         guard let url = URL(string: "https://corona.lmao.ninja/countries") else { return }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -46,29 +77,6 @@ class ViewController: UIViewController {
         }
         task.resume()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-}
-
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stats.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let country = stats[indexPath.row].country
-        let cases = stats[indexPath.row].cases
-        let death = stats[indexPath.row].deaths
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCellId") as! CountryCell
-        cell.addCountry(countryLabel: country, casesLabel: cases, deathLabel: death)
-        
-        return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-        print(stats[indexPath.row])
-    }
 }
