@@ -30,12 +30,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let country = stats[indexPath.row].country
-        let cases = stats[indexPath.row].cases
-        let death = stats[indexPath.row].deaths
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCellId") as! CountryCell
-        cell.addCountry(countryLabel: country, casesLabel: cases, deathLabel: death)
+        cell.addCountry(tempStat: stats[indexPath.row])
         
         return cell
     }
