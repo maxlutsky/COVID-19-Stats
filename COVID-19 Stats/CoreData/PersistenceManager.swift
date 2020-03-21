@@ -95,3 +95,19 @@ class PersistenceManager {
         }
     }
 }
+
+// for use we need create singleton in VC:     let persistenceManager = PersistenceManager.shared
+// then use method fetch and save
+//         fetch() example
+//         let stats = persistenceManager.fetch(Stats.self)
+//         myArrayWithStats = stats
+//         stats.forEach { (stat) in
+//             print(stat)
+//         }
+//
+//         save exmaple
+//         let stat = Stats(context: persistenceManager.context)
+//         Stats.country = "Brasil"
+//         Stats.cases = 35 000
+//         ....
+//         persistenceManager.save()
