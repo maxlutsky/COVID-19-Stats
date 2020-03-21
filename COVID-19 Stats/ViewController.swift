@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
+    
+    let dataService = DataService.shared
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -44,8 +47,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let detailsViewController = storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
         navigationController?.pushViewController(detailsViewController, animated: true)
         detailsViewController.stats = stats[indexPath.row]
-        
-        
     }
 }
 
@@ -72,6 +73,9 @@ extension ViewController{
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
+                
+                guard let data = data else { return }
+                self.dataService.getFromCoreDataAllInstance(data: data)
                 
              } catch let parsingError {
                 print("Error", parsingError)
