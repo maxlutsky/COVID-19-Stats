@@ -57,13 +57,10 @@ extension ViewController{
             }
             do {
                 //here dataResponse received from a network request
-                let jsonResponse = try JSONSerialization.jsonObject(with: dataResponse, options: [])
-                guard let jsonArray = jsonResponse as? [[String: Any]] else { return }
+                let decoder = JSONDecoder()
+                let model = try decoder.decode([Stats].self, from: dataResponse) //Decode JSON Response Data
+                self.stats = model
                 
-                for dic in jsonArray{
-                    self.stats.append(Stats(dic))
-                }
-
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
