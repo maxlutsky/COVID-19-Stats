@@ -8,16 +8,27 @@
 
 import Foundation
 
-struct Stats: Decodable {
+struct Stats: Codable {
     var country: String
     var cases: Int
+    var todayCases: Int
     var deaths: Int
-    
-    init(_ dictionary: [String: Any]) {
-      self.country = dictionary["country"] as? String ?? ""
-      self.cases = dictionary["cases"] as? Int ?? 0
-      self.deaths = dictionary["deaths"] as? Int ?? 0
-    }
+    var todayDeaths: Int
+    var recovered: Int
+    var active: Int
+    var critical: Int
+    var casesPerOneMillion: Int
 }
 
-
+//{
+//    "country":"Portugal",
+//    "cases":1020,
+//    "todayCases":0,
+//    "deaths":6,
+//    "todayDeaths":0,
+//    "recovered":5,
+//    "active":1009,
+//    "critical":26,
+//    "casesPerOneMillion":100
+//
+//},
