@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501ED60824261ACE00E374FA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501ED60724261ACE00E374FA /* DetailsViewController.swift */; };
 		5043B29C2424E1F100B2333F /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043B29B2424E1F100B2333F /* CountryCell.swift */; };
 		5043B29E2425244A00B2333F /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043B29D2425244A00B2333F /* Country.swift */; };
 		50B816782424B60D007CDE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B816772424B60D007CDE87 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		501ED60724261ACE00E374FA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		5043B29B2424E1F100B2333F /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		5043B29D2425244A00B2333F /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		50B816742424B60D007CDE87 /* COVID-19 Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID-19 Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +67,7 @@
 				5043B29D2425244A00B2333F /* Country.swift */,
 				5043B29B2424E1F100B2333F /* CountryCell.swift */,
 				50B8167B2424B60D007CDE87 /* ViewController.swift */,
+				501ED60724261ACE00E374FA /* DetailsViewController.swift */,
 				50B8167D2424B60D007CDE87 /* Main.storyboard */,
 				50B816802424B610007CDE87 /* Assets.xcassets */,
 				50B816822424B610007CDE87 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 				50B816782424B60D007CDE87 /* AppDelegate.swift in Sources */,
 				5043B29E2425244A00B2333F /* Country.swift in Sources */,
 				50B8167A2424B60D007CDE87 /* SceneDelegate.swift in Sources */,
+				501ED60824261ACE00E374FA /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
