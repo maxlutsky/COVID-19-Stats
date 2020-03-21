@@ -10,11 +10,17 @@
         <attribute name="todayCases" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="todayDeaths" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="CountryStats" representedClassName="CountryStats" syncable="YES" codeGenerationType="class">
+        <attribute name="cases" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="todayCases" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="SetCountry" representedClassName="SetCountry" syncable="YES" codeGenerationType="class">
         <attribute name="allCountyJSON" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Country" positionX="-63" positionY="-18" width="128" height="163"/>
         <element name="SetCountry" positionX="-54" positionY="54" width="128" height="58"/>
+        <element name="CountryStats" positionX="-36" positionY="63" width="128" height="88"/>
     </elements>
 </model>

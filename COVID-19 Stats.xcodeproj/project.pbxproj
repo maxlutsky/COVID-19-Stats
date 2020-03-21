@@ -32,6 +32,12 @@
 		50B816852424B610007CDE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A5263EB24255FDB00BCD78B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		6A5263EE2425F78500BCD78B /* COVID19.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = COVID19.xcdatamodel; sourceTree = "<group>"; };
+		6A5264022425FE4A00BCD78B /* CountryStats+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryStats+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6A5264032425FE4A00BCD78B /* CountryStats+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryStats+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6A5264062425FEF700BCD78B /* SetCountry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetCountry+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6A5264072425FEF700BCD78B /* SetCountry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetCountry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6A5264082425FEF700BCD78B /* Country+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6A5264092425FEF800BCD78B /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,12 @@
 		6A5264012425FBDB00BCD78B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6A5264062425FEF700BCD78B /* SetCountry+CoreDataClass.swift */,
+				6A5264072425FEF700BCD78B /* SetCountry+CoreDataProperties.swift */,
+				6A5264082425FEF700BCD78B /* Country+CoreDataClass.swift */,
+				6A5264092425FEF800BCD78B /* Country+CoreDataProperties.swift */,
+				6A5264022425FE4A00BCD78B /* CountryStats+CoreDataClass.swift */,
+				6A5264032425FE4A00BCD78B /* CountryStats+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
