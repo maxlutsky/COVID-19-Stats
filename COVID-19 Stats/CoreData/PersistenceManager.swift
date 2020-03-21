@@ -111,3 +111,29 @@ class PersistenceManager {
 //         Stats.cases = 35 000
 //         ....
 //         persistenceManager.save()
+
+
+//___________________________________ put into VC
+
+//let persistenceManager = PersistenceManager.shared
+//
+//getFromCoreDataAllInstance()
+//
+//
+//func saveToCoreData(_ JSON: String) {
+//    print("try save \(JSON)")
+//    let setCountry = SetCountry(context: persistenceManager.context)
+//    setCountry.allCountyJSON = JSON
+//    persistenceManager.save()
+//}
+//
+//func getFromCoreDataAllInstance() {
+//    let setCountry = persistenceManager.fetch(SetCountry.self)
+//    print(setCountry)
+//    setCountry.forEach { (country) in
+//        print("Country number")
+//        print(country.allCountyJSON)
+//    }
+//}
+//
+//saveToCoreData(String(indexPath.row))
