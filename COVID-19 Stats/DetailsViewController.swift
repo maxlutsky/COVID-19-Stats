@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class DetailsViewController: UIViewController {
     
@@ -26,6 +27,9 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var recoverlabel: UILabel!
     @IBOutlet weak var recoverednumber: UILabel!
+    
+    @IBOutlet weak var lineChart: LineChartView!
+    
 
     var stats:Stats?
     
@@ -34,6 +38,7 @@ class DetailsViewController: UIViewController {
         countryLabel.text = stats?.country
         
         showData()
+        setChartvalue()
         
         fetchDetailsCountry()
 //        casesLabel.text = String(stats?.cases)
@@ -50,6 +55,19 @@ class DetailsViewController: UIViewController {
         restService.fetchGenericData(url, httpMethod: .get) { (data: Stats) in
             print(data)
         }
+    }
+    
+    func setChartvalue() {
+        let values = (0...15).map { (i) -> ChartDataEntry in
+            let val = Double(arc4random_uniform(UInt32(15)) + 3)
+            return ChartDataEntry(x: Double(i), y: val)
+        }
+        
+        let set1 = LineChartDataSet(entries: values, label: "Data set 1")
+        let data = LineChartData(dataSet: set1)
+        
+        self.lineChart.data = data
+        
     }
     
     func showData() {

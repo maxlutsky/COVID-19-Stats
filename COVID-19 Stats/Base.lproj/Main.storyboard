@@ -213,12 +213,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICr-ve-uLw" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="278" width="374" height="604"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ZH0-X2-IUv" firstAttribute="leading" secondItem="1ge-k9-t6J" secondAttribute="trailing" constant="16" id="3sx-Hk-om6"/>
                             <constraint firstItem="HBd-9x-ydN" firstAttribute="top" secondItem="Ybl-0I-DIP" secondAttribute="bottom" constant="8" id="7PQ-uZ-Aes"/>
                             <constraint firstItem="Ybl-0I-DIP" firstAttribute="top" secondItem="QNJ-Io-Xjn" secondAttribute="bottom" constant="36" id="EHS-PR-dNN"/>
+                            <constraint firstItem="ICr-ve-uLw" firstAttribute="leading" secondItem="aZW-jU-AhI" secondAttribute="leading" constant="20" id="GlD-P5-riX"/>
                             <constraint firstItem="aZW-jU-AhI" firstAttribute="trailing" secondItem="QNJ-Io-Xjn" secondAttribute="trailing" constant="16" id="IjP-Yg-9tq"/>
                             <constraint firstItem="QNJ-Io-Xjn" firstAttribute="leading" secondItem="1ge-k9-t6J" secondAttribute="trailing" constant="16" id="J8p-YT-MHH"/>
                             <constraint firstItem="rl5-yk-Ppm" firstAttribute="top" secondItem="mZc-HV-zK1" secondAttribute="bottom" constant="8" id="Owu-B0-btx"/>
@@ -228,14 +233,17 @@
                             <constraint firstItem="ZH0-X2-IUv" firstAttribute="top" secondItem="1ge-k9-t6J" secondAttribute="top" id="Rnn-AM-fQf"/>
                             <constraint firstItem="mZc-HV-zK1" firstAttribute="top" secondItem="1ge-k9-t6J" secondAttribute="bottom" constant="36" id="TRX-gn-CTL"/>
                             <constraint firstItem="Ybl-0I-DIP" firstAttribute="trailing" secondItem="QNJ-Io-Xjn" secondAttribute="trailing" id="WNd-mh-hKp"/>
+                            <constraint firstItem="ICr-ve-uLw" firstAttribute="bottom" secondItem="aZW-jU-AhI" secondAttribute="bottom" constant="20" id="XGI-8F-w7p"/>
                             <constraint firstItem="m9j-Zo-lsa" firstAttribute="top" secondItem="1ge-k9-t6J" secondAttribute="bottom" constant="36" id="Zuj-XT-yBI"/>
                             <constraint firstItem="gGE-CG-WaH" firstAttribute="top" secondItem="m9j-Zo-lsa" secondAttribute="bottom" constant="8" id="b06-EB-eXh"/>
                             <constraint firstItem="gGE-CG-WaH" firstAttribute="leading" secondItem="1ge-k9-t6J" secondAttribute="leading" id="b1z-LB-fvM"/>
                             <constraint firstItem="mZc-HV-zK1" firstAttribute="leading" secondItem="m9j-Zo-lsa" secondAttribute="trailing" constant="33" id="fBC-FT-QkJ"/>
+                            <constraint firstItem="aZW-jU-AhI" firstAttribute="trailing" secondItem="ICr-ve-uLw" secondAttribute="trailing" constant="20" id="heA-mp-7gA"/>
                             <constraint firstItem="HBd-9x-ydN" firstAttribute="trailing" secondItem="QNJ-Io-Xjn" secondAttribute="trailing" id="myh-Py-Cdd"/>
                             <constraint firstItem="aZW-jU-AhI" firstAttribute="trailing" secondItem="ZH0-X2-IUv" secondAttribute="trailing" constant="16" id="s32-xO-LLp"/>
                             <constraint firstItem="QNJ-Io-Xjn" firstAttribute="bottom" secondItem="1ge-k9-t6J" secondAttribute="bottom" id="soQ-SR-JTt"/>
                             <constraint firstItem="1ge-k9-t6J" firstAttribute="leading" secondItem="aZW-jU-AhI" secondAttribute="leading" constant="20" id="yfX-sK-VT8"/>
+                            <constraint firstItem="ICr-ve-uLw" firstAttribute="top" secondItem="gGE-CG-WaH" secondAttribute="bottom" constant="60" id="yx0-4r-G3H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aZW-jU-AhI"/>
                     </view>
@@ -243,6 +251,7 @@
                         <outlet property="countryLabel" destination="1ge-k9-t6J" id="rSy-3Y-cHo"/>
                         <outlet property="deathLabel" destination="ZH0-X2-IUv" id="VCj-D9-SuV"/>
                         <outlet property="deathNumber" destination="QNJ-Io-Xjn" id="BTp-wb-OBZ"/>
+                        <outlet property="lineChart" destination="ICr-ve-uLw" id="zMY-QN-75Z"/>
                         <outlet property="newCaseLabel" destination="mZc-HV-zK1" id="jX5-RR-5qe"/>
                         <outlet property="newCaseNumber" destination="rl5-yk-Ppm" id="eLo-Zy-u33"/>
                         <outlet property="recoverednumber" destination="HBd-9x-ydN" id="rCp-DW-G3n"/>
