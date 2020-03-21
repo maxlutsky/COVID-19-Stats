@@ -41,8 +41,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-        print(stats[indexPath.row])
+//        print(indexPath)
+//        print(stats[indexPath.row])
         
         let detailsViewController = storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
         navigationController?.pushViewController(detailsViewController, animated: true)

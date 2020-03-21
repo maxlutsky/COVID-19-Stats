@@ -20,6 +20,8 @@ struct Stats: Codable {
     var casesPerOneMillion: Int
 }
 
+
+
 //{
 //    "country":"Portugal",
 //    "cases":1020,
@@ -32,3 +34,15 @@ struct Stats: Codable {
 //    "casesPerOneMillion":100
 //
 //},
+
+struct HistoricData: Codable {
+    var country: String
+    var province: String
+    var timeline: Timeline
+}
+
+struct Timeline: Codable {
+    var cases: String
+    var deaths: String
+    var recovered: String
+}
