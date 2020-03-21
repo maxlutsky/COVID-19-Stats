@@ -27,16 +27,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Country name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="pSo-S0-ZQw">
-                                                    <rect key="frame" x="20" y="17" width="200" height="27.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="EEz-69-0Rb"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="20" y="17" width="194" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="999999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIo-iV-MvM">
-                                                    <rect key="frame" x="230" y="16.5" width="80" height="28"/>
+                                                    <rect key="frame" x="224" y="16.5" width="80" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="1aR-2U-LcI"/>
                                                     </constraints>
@@ -45,7 +42,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="999999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zW0-hq-d3J">
-                                                    <rect key="frame" x="320" y="16.5" width="80" height="28"/>
+                                                    <rect key="frame" x="314" y="16.5" width="80" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="thc-Ko-vF5"/>
                                                     </constraints>
@@ -60,6 +57,7 @@
                                                 <constraint firstItem="pSo-S0-ZQw" firstAttribute="centerY" secondItem="u2P-0u-rhw" secondAttribute="centerY" id="P1L-7f-5Xb"/>
                                                 <constraint firstItem="zW0-hq-d3J" firstAttribute="centerY" secondItem="u2P-0u-rhw" secondAttribute="centerY" id="j1Z-b2-pGF"/>
                                                 <constraint firstItem="DIo-iV-MvM" firstAttribute="centerY" secondItem="u2P-0u-rhw" secondAttribute="centerY" id="oaF-rM-qVB"/>
+                                                <constraint firstAttribute="trailing" secondItem="zW0-hq-d3J" secondAttribute="trailing" constant="20" id="w0u-4V-cob"/>
                                                 <constraint firstItem="pSo-S0-ZQw" firstAttribute="leading" secondItem="u2P-0u-rhw" secondAttribute="leading" constant="20" id="zWW-wN-2gs"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -111,6 +109,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CbB-dJ-hMV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="PPA-Qe-zYK">
+            <objects>
+                <viewController storyboardIdentifier="DetailsViewController" id="uAi-lM-WNh" customClass="DetailsViewController" customModule="COVID_19_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RRd-ua-HZa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGS-mr-8lQ">
+                                <rect key="frame" x="30" y="151" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="1ge-k9-t6J">
+                                <rect key="frame" x="20" y="84" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="E13-Ur-d1C"/>
+                                    <constraint firstAttribute="height" constant="40" id="wJ1-Li-i3a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1ge-k9-t6J" firstAttribute="top" secondItem="aZW-jU-AhI" secondAttribute="top" constant="40" id="QxF-D5-fC6"/>
+                            <constraint firstItem="1ge-k9-t6J" firstAttribute="leading" secondItem="aZW-jU-AhI" secondAttribute="leading" constant="20" id="yfX-sK-VT8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aZW-jU-AhI"/>
+                    </view>
+                    <connections>
+                        <outlet property="countryLabel" destination="1ge-k9-t6J" id="rSy-3Y-cHo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mLD-ML-2bL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682.608695652174" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
