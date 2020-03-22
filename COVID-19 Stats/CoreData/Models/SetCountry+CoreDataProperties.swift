@@ -17,6 +17,7 @@ extension SetCountry {
         return NSFetchRequest<SetCountry>(entityName: "SetCountry")
     }
 
-    @NSManaged public var allCountyJSON: String?
+    @NSManaged public var allCountyJSON: Data?
+    @NSManaged public var date: String?
 
 }

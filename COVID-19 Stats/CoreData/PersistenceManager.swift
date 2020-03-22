@@ -27,6 +27,24 @@ class PersistenceManager {
     }()
     
     lazy var context = persistentContainer.viewContext
+    
+//    func delete() {
+//        
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "COVID19")
+//        fetchRequest.returnsObjectsAsFaults = false
+//
+//        do
+//        {
+//            let results = try context.fetch(fetchRequest)
+//            for managedObject in results
+//            {
+//                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+//                context.delete(managedObjectData)
+//            }
+//        } catch let error as NSError {
+//            print("Detele all my data in  error : \(error.userInfo)")
+//        }
+//    }
 
     func save () {
         if context.hasChanges {
@@ -75,6 +93,33 @@ class PersistenceManager {
         
     }
     
+    func fetchWithPatch(filterBy: String, find: String, newVersion: Data) {
+
+        let entityName = String(describing: AllCountry.self)
+
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+
+        fetchRequest.predicate = NSPredicate(format: "\(filterBy) == %@", find)
+
+        do {
+            let fetchObjects = try context.fetch(fetchRequest) as? [AllCountry]
+            
+            guard let unwrapFetchObjects = fetchObjects else { return }
+            
+            if unwrapFetchObjects.count > 0 {
+                unwrapFetchObjects[0].setValue(newVersion, forKey: find)
+            } else {
+                let today = getDateToday()
+                let setCountry = AllCountry(context: PersistenceManager.shared.context)
+                setCountry.allCountryJSON = newVersion
+                setCountry.date = today
+            }
+            self.save()
+        } catch {
+            print(error)
+        }
+    }
+    
     func fetchAndDelete<T: NSManagedObject>(_ objectType: T.Type) -> Bool {
         
         let entityName = String(describing: objectType)
@@ -94,46 +139,10 @@ class PersistenceManager {
             return false
         }
     }
+    
+    private func getDateToday() -> String {
+        let today = Date()
+        let dateImage = today.toString(dateFormat: "yyyy-MM-dd")
+        return dateImage
+    }
 }
-
-// for use we need create singleton in VC:     let persistenceManager = PersistenceManager.shared
-// then use method fetch and save
-//         fetch() example
-//         let stats = persistenceManager.fetch(Stats.self)
-//         myArrayWithStats = stats
-//         stats.forEach { (stat) in
-//             print(stat)
-//         }
-//
-//         save exmaple
-//         let stat = Stats(context: persistenceManager.context)
-//         Stats.country = "Brasil"
-//         Stats.cases = 35 000
-//         ....
-//         persistenceManager.save()
-
-
-//___________________________________ put into VC
-
-//let persistenceManager = PersistenceManager.shared
-//
-//getFromCoreDataAllInstance()
-//
-//
-//func saveToCoreData(_ JSON: String) {
-//    print("try save \(JSON)")
-//    let setCountry = SetCountry(context: persistenceManager.context)
-//    setCountry.allCountyJSON = JSON
-//    persistenceManager.save()
-//}
-//
-//func getFromCoreDataAllInstance() {
-//    let setCountry = persistenceManager.fetch(SetCountry.self)
-//    print(setCountry)
-//    setCountry.forEach { (country) in
-//        print("Country number")
-//        print(country.allCountyJSON)
-//    }
-//}
-//
-//saveToCoreData(String(indexPath.row))
