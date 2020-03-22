@@ -86,7 +86,7 @@ class DetailsViewController: UIViewController {
             }
         }
         
-
+        lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
     func setChartvalue(arrayCases : [String]) {
@@ -115,5 +115,7 @@ class DetailsViewController: UIViewController {
         
         recoverlabel.text = "Dead"
         recoverednumber.text = String(statsUnwraped.deaths)
+        
+        lineChart.borderColor = UIColor.red
     }
 }
