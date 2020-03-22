@@ -28,12 +28,19 @@ class DataService {
     
     public func getFromCoreDataAllInstance(data: Data) {
         let setCountry = persistenceManager.fetch(AllCountry.self)
+        print(setCountry)
+        var semaphore = false
         if setCountry.count > 0 {
             print("update exist entity")
             for object in setCountry {
+                print(object.date!)
                 if object.date == getDateToday() {
+                    semaphore = true
                     object.setValue(data, forKey: "allCountryJSON")
                 }
+            }
+            if !semaphore {
+                saveToCoreData(data)
             }
             persistenceManager.save()
         } else {
