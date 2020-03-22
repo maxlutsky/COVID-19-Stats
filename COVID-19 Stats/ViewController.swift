@@ -13,13 +13,30 @@ class ViewController: UIViewController {
     
     let dataService = DataService.shared
     
+    //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
     var stats: [Stats] = []
-
+    var filteredStats: [Stats] = []
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Countries"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
         requestData()
         
         dataService.fetchDetailsHistoric()
@@ -35,28 +52,52 @@ class ViewController: UIViewController {
             print(dataService.historicData[0].timeline?.cases["3/21/20"])
         }
     }
+    
+    
+    func filterContentForSearchText(_ searchText: String) {
+      filteredStats = stats.filter { (stats: Stats) -> Bool in
+        return stats.country.lowercased().contains(searchText.lowercased())
+      }
+      
+      tableView.reloadData()
+    }
 }
+
+    //MARK: Extensions
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+          if isFiltering {
+          return filteredStats.count
+        }
+          
         return stats.count
     }
 
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCellId") as! CountryCell
-        cell.addCountry(tempStat: stats[indexPath.row])
         
+        if isFiltering {
+          cell.addCountry(tempStat: filteredStats[indexPath.row])
+        } else {
+          cell.addCountry(tempStat: stats[indexPath.row])
+        }
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath)
-//        print(stats[indexPath.row])
         
         let detailsViewController = storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
         navigationController?.pushViewController(detailsViewController, animated: true)
-        detailsViewController.stats = stats[indexPath.row]
+        if isFiltering {
+          detailsViewController.stats = filteredStats[indexPath.row]
+        } else {
+          detailsViewController.stats = stats[indexPath.row]
+        }
+        
     }
 }
 
@@ -95,4 +136,12 @@ extension ViewController{
         
     }
     
+}
+
+
+extension ViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    let searchBar = searchController.searchBar
+    filterContentForSearchText(searchBar.text!)
+  }
 }
