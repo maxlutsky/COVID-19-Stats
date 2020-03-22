@@ -33,7 +33,7 @@ class DetailsViewController: UIViewController {
 
     var stats:Stats?
     
-    var all: [HistoricData] = []
+//    var all: [HistoricData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +63,7 @@ class DetailsViewController: UIViewController {
     
     func fetchDetailsHistoric() {
         let fullURL = "https://corona.lmao.ninja/historical"
-        restService.fetchGenericData(fullURL, httpMethod: .get) { (data: [HistoricData2]) in
+        restService.fetchGenericData(fullURL, httpMethod: .get) { (data: [HistoricData]) in
             let count = data[0].timeline?.cases["3/21/20"]
             print(count)
         }
@@ -98,55 +98,3 @@ class DetailsViewController: UIViewController {
         recoverednumber.text = String(statsUnwraped.recovered)
     }
 }
-
-struct HistoricData2: Codable {
-    var country: String?
-    var province: String?
-    var timeline: Timeline2?
-    
-    init(_ dictionary: [String: Any]) {
-        self.country = dictionary["country"] as? String ?? ""
-        self.province = dictionary["province"] as? String ?? ""
-        self.timeline = dictionary["timeline"] as? Timeline2 ?? nil
-    }
-}
-
-struct Timeline2: Codable {
-    var cases: [String: String]
-    var deaths:  [String: String]
-    var recovered:  [String: String]
-    
-//    init(_ dictionary: [String: Any]) {
-//        self.cases = dictionary["cases"] as? DateWithCount2
-//        self.deaths = dictionary["deaths"] as? DateWithCount
-//        self.recovered = dictionary["recovered"] as? DateWithCount
-//    }
-}
-
-
-
-struct NearEarthObject: Codable {
-    let referenceID:String
-    let name:String
-    let imageURL:URL
-
-    private enum CodingKeys: String, CodingKey {
-        case referenceID = "neo_reference_id"
-        case name
-        case imageURL = "nasa_jpl_url"
-    }
-}
-
-struct NEOApiResponse: Codable {
-    let nearEarthObjects: [String:[NearEarthObject]]
-
-    private enum CodingKeys: String,CodingKey {
-        case nearEarthObjects = "near_earth_objects"
-    }
-}
-
-//do {
-//    let decodedResponse = try JSONDecoder().decode(NEOApiResponse.self, from: data)
-//} catch {
-//    print(error)
-//}
