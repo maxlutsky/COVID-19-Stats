@@ -22,8 +22,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         requestData()
         
+        dataService.fetchDetailsHistoric()
+        
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if dataService.historicData.count > 0 {
+            print(dataService.historicData[0].timeline?.cases["3/21/20"])
+        }
     }
 }
 
