@@ -59,6 +59,9 @@ class DetailsViewController: UIViewController {
 //        let fullURL = url + statsCountry.country
         restService.fetchGenericData(url, httpMethod: .get) { (data: Stats) in
             print(data)
+        }
+    }
+        
     @IBAction func showRecovered(_ sender: Any) {
         setChartvalue(arrayCases: countDataRecovered)
     }

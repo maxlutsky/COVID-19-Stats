@@ -46,13 +46,13 @@ class ViewController: UIViewController {
     }
     
     
-    func filterContentForSearchText(_ searchText: String) {
-      filteredStats = stats.filter { (stats: Stats) -> Bool in
-        return stats.country.lowercased().contains(searchText.lowercased())
-      }
-      
-      tableView.reloadData()
-    }
+//    func filterContentForSearchText(_ searchText: String) {
+//      filteredStats = stats.filter { (stats: Stats) -> Bool in
+//        return stats.country.lowercased().contains(searchText.lowercased())
+//      }
+//
+//      tableView.reloadData()
+//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     func filterContentForSearchText(_ searchText: String) {
       filteredStats = stats.filter { (stats: Stats) -> Bool in
         return stats.country.lowercased().contains(searchText.lowercased())
-      }
+    }
       
       tableView.reloadData()
     }
