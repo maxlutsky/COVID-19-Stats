@@ -31,7 +31,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var lineChart: LineChartView!
 
-    var stats:Stats?
+    var stats: Stats?
     var country: HistoricData?
     var countDataTotal: [String] = []
     var countDataRecovered: [String] = []
