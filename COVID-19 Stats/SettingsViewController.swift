@@ -42,15 +42,23 @@ class SettingsViewController: UIViewController {
 
     @IBAction func removeDataButtonAction(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Are you sure that you want to remove all data?", message: "You will not be able to undo this. This action will remove all stored information.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { _ in
+        let deletedAlert = UIAlertController(title: "Deleted", message: "", preferredStyle: .alert)
+        
+        deletedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { _ in
+        }))
+        
+        let warningAlert = UIAlertController(title: "Are you sure that you want to remove all data?", message: "You will not be able to undo this. This action will remove all stored information.", preferredStyle: .alert)
+        
+        warningAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
 //            self.dataService.fetchAndDelete()
+            self.present(deletedAlert, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: { _ in
+        warningAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: { _ in
             NSLog("The \"Cancel\" alert occured.")
         }))
-        self.present(alert, animated: true, completion: nil)
+        
+        self.present(warningAlert, animated: true, completion: nil)
         
     }
 }
