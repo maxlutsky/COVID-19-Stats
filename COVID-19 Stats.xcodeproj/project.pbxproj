@@ -18,6 +18,7 @@
 		50B8167F2424B60D007CDE87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50B8167D2424B60D007CDE87 /* Main.storyboard */; };
 		50B816812424B610007CDE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50B816802424B610007CDE87 /* Assets.xcassets */; };
 		50B816842424B610007CDE87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50B816822424B610007CDE87 /* LaunchScreen.storyboard */; };
+		50BE62932430A09800999753 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE62922430A09800999753 /* SettingsViewController.swift */; };
 		6A5263EC24255FDB00BCD78B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5263EB24255FDB00BCD78B /* PersistenceManager.swift */; };
 		6A5263EF2425F78500BCD78B /* COVID19.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A5263ED2425F78500BCD78B /* COVID19.xcdatamodeld */; };
 		6A526414242636B900BCD78B /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A526413242636B900BCD78B /* DataService.swift */; };
@@ -52,6 +53,7 @@
 		50B816802424B610007CDE87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50B816832424B610007CDE87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50B816852424B610007CDE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50BE62922430A09800999753 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5F5A7F42D2ADE1DAD2B422C0 /* Pods_COVID_19_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_COVID_19_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5263EB24255FDB00BCD78B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		6A5263EE2425F78500BCD78B /* COVID19.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = COVID19.xcdatamodel; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				5043B29B2424E1F100B2333F /* CountryCell.swift */,
 				50B8167B2424B60D007CDE87 /* ViewController.swift */,
 				501ED60724261ACE00E374FA /* DetailsViewController.swift */,
+				50BE62922430A09800999753 /* SettingsViewController.swift */,
 				50B8167D2424B60D007CDE87 /* Main.storyboard */,
 				50B816802424B610007CDE87 /* Assets.xcassets */,
 				50B816822424B610007CDE87 /* LaunchScreen.storyboard */,
@@ -305,6 +308,7 @@
 				50B8167A2424B60D007CDE87 /* SceneDelegate.swift in Sources */,
 				6A52642324266ED300BCD78B /* RestService.swift in Sources */,
 				501ED60824261ACE00E374FA /* DetailsViewController.swift in Sources */,
+				50BE62932430A09800999753 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

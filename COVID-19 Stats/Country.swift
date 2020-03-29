@@ -17,7 +17,7 @@ struct Stats: Codable {
     var recovered: Int
     var active: Int
     var critical: Int
-    var casesPerOneMillion: Double
+    var casesPerOneMillion: Double?
 }
 struct HistoricData: Codable {
     var country: String?

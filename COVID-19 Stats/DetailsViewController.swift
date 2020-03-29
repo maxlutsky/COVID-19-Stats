@@ -36,17 +36,20 @@ class DetailsViewController: UIViewController {
     var countDataTotal: [String] = []
     var countDataRecovered: [String] = []
     var countDataDead: [String] = []
+    var settings:UIBarButtonItem = UIBarButtonItem()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         countryLabel.text = stats?.country
-        
+        settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
+        navigationItem.rightBarButtonItems = [settings]
         showData()
         if (country == nil) {
             parseHistoricData()
             parseFromDictionary()
-            
-            setChartvalue(arrayCases: countDataTotal)
+//            print(countDataTotal)
+//            setChartvalue(arrayCases: countDataTotal)
         }
     }
     
@@ -98,6 +101,7 @@ class DetailsViewController: UIViewController {
     }
     
     func setChartvalue(arrayCases : [String]) {
+        print(countDataTotal.count)
         let values = (0...(countDataTotal.count - 1)).map { (i) -> ChartDataEntry in
             let val = Double(arrayCases[i])
             return ChartDataEntry(x: Double(i + 2), y: val ?? 1)
@@ -125,5 +129,10 @@ class DetailsViewController: UIViewController {
         recoverednumber.text = String(statsUnwraped.deaths)
         
         lineChart.borderColor = UIColor.red
+    }
+    
+    @objc func openSettings(){
+        let settingsViewController = storyboard?.instantiateViewController(identifier: "SettingsViewController") as! SettingsViewController
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
 }
