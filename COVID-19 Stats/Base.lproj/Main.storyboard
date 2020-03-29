@@ -298,22 +298,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5b-df-InJ">
-                                <rect key="frame" x="38" y="139" width="109" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r6V-6v-ck6">
-                                <rect key="frame" x="347" y="137" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r6V-6v-ck6">
+                                <rect key="frame" x="345" y="144" width="51" height="31"/>
                                 <connections>
                                     <action selector="testSwitch:" destination="KYP-We-5Dt" eventType="valueChanged" id="nCx-Gg-VUj"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5b-df-InJ">
+                                <rect key="frame" x="40" y="144" width="109" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgA-XB-EY7">
+                                <rect key="frame" x="30" y="702" width="354" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.35893971903184307" blue="0.39191357788319658" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="KmJ-aa-JNO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                <state key="normal" title="Remove all data">
+                                    <color key="titleColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeDataButtonAction:" destination="KYP-We-5Dt" eventType="touchUpInside" id="Lbe-Bl-Due"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="K5d-oi-71i" firstAttribute="bottom" secondItem="NgA-XB-EY7" secondAttribute="bottom" constant="100" id="1C9-im-60z"/>
+                            <constraint firstItem="K5d-oi-71i" firstAttribute="trailing" secondItem="r6V-6v-ck6" secondAttribute="trailing" constant="20" id="7TL-LU-Dbc"/>
+                            <constraint firstItem="j5b-df-InJ" firstAttribute="top" secondItem="K5d-oi-71i" secondAttribute="top" constant="100" id="7vb-1a-RUM"/>
+                            <constraint firstItem="j5b-df-InJ" firstAttribute="leading" secondItem="K5d-oi-71i" secondAttribute="leading" constant="40" id="BWS-gw-jly"/>
+                            <constraint firstItem="K5d-oi-71i" firstAttribute="trailing" secondItem="NgA-XB-EY7" secondAttribute="trailing" constant="30" id="CzU-W7-2Re"/>
+                            <constraint firstItem="NgA-XB-EY7" firstAttribute="leading" secondItem="K5d-oi-71i" secondAttribute="leading" constant="30" id="vWn-3G-ViZ"/>
+                            <constraint firstItem="r6V-6v-ck6" firstAttribute="top" secondItem="K5d-oi-71i" secondAttribute="top" constant="100" id="woU-R6-WC7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="K5d-oi-71i"/>
                     </view>
                     <connections>
