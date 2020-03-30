@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     var stats: [Stats] = []
     var filteredStats: [Stats] = []
+    
     let searchController = UISearchController(searchResultsController: nil)
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
@@ -27,16 +28,24 @@ class ViewController: UIViewController {
     var isFiltering: Bool {
       return searchController.isActive && !isSearchBarEmpty
     }
+    var settings:UIBarButtonItem = UIBarButtonItem()
+
+    
+    
+    
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
+        navigationItem.rightBarButtonItems = [settings]
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Countries"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
+        print("viewDidload\n+++++++++++++++++++")
         requestData()
         
         dataService.fetchDetailsHistoric()
@@ -60,6 +69,8 @@ class ViewController: UIViewController {
         if dataService.historicData.count > 0 {
             print(dataService.historicData[0].timeline?.cases["3/21/20"])
         }
+        
+        print("viewDidappear\n=====================")
     }
     
     
@@ -69,6 +80,11 @@ class ViewController: UIViewController {
     }
       
       tableView.reloadData()
+    }
+    
+    @objc func openSettings(){
+        let settingsViewController = storyboard?.instantiateViewController(identifier: "SettingsViewController") as! SettingsViewController
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
 }
 
