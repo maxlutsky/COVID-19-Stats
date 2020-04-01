@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xfh-cR-5xl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tGU-0M-Wp9">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCellId" rowHeight="61" id="oUi-WQ-v5Y" customClass="CountryCell" customModule="COVID_19_Stats" customModuleProvider="target">
@@ -76,9 +75,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tGU-0M-Wp9" secondAttribute="trailing" id="7Sk-dW-WLQ"/>
-                            <constraint firstItem="tGU-0M-Wp9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="Ioe-4h-9ia"/>
                             <constraint firstAttribute="bottom" secondItem="tGU-0M-Wp9" secondAttribute="bottom" constant="34" id="Ugo-d8-a4k"/>
                             <constraint firstItem="tGU-0M-Wp9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VBm-MM-0Gk"/>
+                            <constraint firstItem="tGU-0M-Wp9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="o4T-ib-nkT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tGU-0M-Wp9" secondAttribute="bottom" id="w7E-ee-bue"/>
                             <constraint firstAttribute="trailing" secondItem="tGU-0M-Wp9" secondAttribute="trailing" id="wZK-Ec-aBu"/>
                             <constraint firstItem="tGU-0M-Wp9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yfs-39-7Fx"/>
