@@ -29,7 +29,7 @@ class ViewController: UIViewController {
       return searchController.isActive && !isSearchBarEmpty
     }
     var settings:UIBarButtonItem = UIBarButtonItem()
-
+    var text:UIBarButtonItem = UIBarButtonItem()
     
     
     
@@ -37,7 +37,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+
+        
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
+        navigationItem.title = "Covid-19"
         navigationItem.rightBarButtonItems = [settings]
         
         searchController.searchResultsUpdater = self

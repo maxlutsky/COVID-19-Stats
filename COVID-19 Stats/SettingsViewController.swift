@@ -13,9 +13,14 @@ class SettingsViewController: UIViewController {
 //    let dataService = DataService.shared
     
     @IBOutlet weak var testSwitchOutlet: UISwitch!
+    @IBOutlet weak var removeButtonOutlet: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Settings"
         testSwitchOutlet.isOn = UserDefaults.standard.bool(forKey: "testSwitch")
+        removeButtonOutlet.setBackgroundImage(UIImage(named: "settings.pdf"), for: UIControl.State.normal)
         // Do any additional setup after loading the view.
     }
     

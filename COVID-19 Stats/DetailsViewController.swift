@@ -43,6 +43,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         countryLabel.text = stats?.country
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
+        navigationItem.title = "Details"
         navigationItem.rightBarButtonItems = [settings]
         showData()
         if (country == nil) {
