@@ -37,7 +37,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        let buttonIcon = UIImage(named: "Settings")
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
+        settings.image = buttonIcon
         navigationItem.title = "Covid-19"
         navigationItem.rightBarButtonItems = [settings]
         searchController.searchResultsUpdater = self

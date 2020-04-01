@@ -42,7 +42,9 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         countryLabel.text = stats?.country
+        let buttonIcon = UIImage(named: "Settings")
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
+        settings.image = buttonIcon
         navigationItem.title = "Details"
         navigationItem.rightBarButtonItems = [settings]
         showData()
