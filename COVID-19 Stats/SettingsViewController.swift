@@ -9,8 +9,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
-//    let dataService = DataService.shared
     
     @IBOutlet weak var testSwitchOutlet: UISwitch!
     @IBOutlet weak var removeButtonOutlet: UIButton!
@@ -21,7 +19,6 @@ class SettingsViewController: UIViewController {
         navigationItem.title = "Settings"
         testSwitchOutlet.isOn = UserDefaults.standard.bool(forKey: "testSwitch")
         removeButtonOutlet.setBackgroundImage(UIImage(named: "settings.pdf"), for: UIControl.State.normal)
-        // Do any additional setup after loading the view.
     }
     
     
@@ -34,16 +31,6 @@ class SettingsViewController: UIViewController {
             UserDefaults.standard.set(false, forKey: "testSwitch")
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func removeDataButtonAction(_ sender: Any) {
         
@@ -51,12 +38,10 @@ class SettingsViewController: UIViewController {
         
         deletedAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { _ in
         }))
-        
         let warningAlert = UIAlertController(title: "Are you sure that you want to remove all data?", message: "You will not be able to undo this. This action will remove all stored information.", preferredStyle: .alert)
         
         warningAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { _ in
             NSLog("The \"OK\" alert occured.")
-//            self.dataService.fetchAndDelete()
             self.present(deletedAlert, animated: true, completion: nil)
         }))
         warningAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: { _ in

@@ -37,35 +37,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-
-        
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
         navigationItem.title = "Covid-19"
         navigationItem.rightBarButtonItems = [settings]
-        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Countries"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        print("viewDidload\n+++++++++++++++++++")
+        
         requestData()
-        
         dataService.fetchDetailsHistoric()
-        
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    
-//    func filterContentForSearchText(_ searchText: String) {
-//      filteredStats = stats.filter { (stats: Stats) -> Bool in
-//        return stats.country.lowercased().contains(searchText.lowercased())
-//      }
-//
-//      tableView.reloadData()
-//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -73,8 +59,7 @@ class ViewController: UIViewController {
         if dataService.historicData.count > 0 {
             print(dataService.historicData[0].timeline?.cases["3/21/20"])
         }
-        
-        print("viewDidappear\n=====================")
+
     }
     
     
