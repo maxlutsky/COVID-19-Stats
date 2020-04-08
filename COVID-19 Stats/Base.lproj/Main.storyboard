@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tGU-0M-Wp9">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="125.5" width="414" height="736.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCellId" rowHeight="61" id="oUi-WQ-v5Y" customClass="CountryCell" customModule="COVID_19_Stats" customModuleProvider="target">
@@ -71,13 +71,44 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeK-25-mp0">
+                                <rect key="frame" x="20" y="93" width="194" height="27.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBw-rD-jhW">
+                                <rect key="frame" x="224" y="93" width="80" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Wpd-7z-hM6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Death" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efr-iH-wc9">
+                                <rect key="frame" x="314" y="93" width="80" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="LTK-S4-98I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tGU-0M-Wp9" secondAttribute="trailing" id="7Sk-dW-WLQ"/>
-                            <constraint firstAttribute="bottom" secondItem="tGU-0M-Wp9" secondAttribute="bottom" constant="34" id="Ugo-d8-a4k"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Efr-iH-wc9" secondAttribute="trailing" constant="20" id="HWR-2E-7oJ"/>
+                            <constraint firstItem="Efr-iH-wc9" firstAttribute="centerY" secondItem="VeK-25-mp0" secondAttribute="centerY" id="Pjn-R3-yzM"/>
+                            <constraint firstAttribute="bottom" secondItem="tGU-0M-Wp9" secondAttribute="bottom" id="Ugo-d8-a4k"/>
                             <constraint firstItem="tGU-0M-Wp9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VBm-MM-0Gk"/>
-                            <constraint firstItem="tGU-0M-Wp9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="o4T-ib-nkT"/>
+                            <constraint firstItem="VeK-25-mp0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="W1j-Dq-TKC"/>
+                            <constraint firstItem="tGU-0M-Wp9" firstAttribute="top" secondItem="VeK-25-mp0" secondAttribute="bottom" constant="5" id="ae1-od-lDH"/>
+                            <constraint firstItem="hBw-rD-jhW" firstAttribute="leading" secondItem="VeK-25-mp0" secondAttribute="trailing" constant="10" id="blg-dU-jtl"/>
+                            <constraint firstItem="Efr-iH-wc9" firstAttribute="leading" secondItem="hBw-rD-jhW" secondAttribute="trailing" constant="10" id="g7w-yI-9hX"/>
+                            <constraint firstItem="VeK-25-mp0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lkg-ou-ekV"/>
+                            <constraint firstItem="hBw-rD-jhW" firstAttribute="centerY" secondItem="VeK-25-mp0" secondAttribute="centerY" id="pfz-Fo-gDv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tGU-0M-Wp9" secondAttribute="bottom" id="w7E-ee-bue"/>
                             <constraint firstAttribute="trailing" secondItem="tGU-0M-Wp9" secondAttribute="trailing" id="wZK-Ec-aBu"/>
                             <constraint firstItem="tGU-0M-Wp9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yfs-39-7Fx"/>
