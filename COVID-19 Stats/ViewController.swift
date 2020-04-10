@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         let favoritesButtonIcon = UIImage(named: "Star")
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
         settings.image = buttonIcon
-        favoritesButton = UIBarButtonItem.init(title: "favorites", style: .plain, target: self, action: #selector(switchfavorites))
+        favoritesButton = UIBarButtonItem.init(title: "favorites", style: .plain, target: self, action: #selector(switchFavorites))
         favoritesButton.image = favoritesButtonIcon
         navigationItem.leftBarButtonItems = [favoritesButton]
         navigationItem.title = "Covid-19"
@@ -66,7 +66,10 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("View APPEARED\n")
-        
+        if !(stats.isEmpty){
+            stats = applyFavorites(stats: stats)
+            print("DATA UDPATED")
+        }
         if dataService.historicData.count > 0 {
             print(dataService.historicData[0].timeline?.cases["3/21/20"])
         }
@@ -87,8 +90,7 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
-    @objc func switchfavorites(){
-//        stats = applyFavorites(stats: stats)
+    @objc func switchFavorites(){
         let favorites = UserDefaults.standard.stringArray(forKey: "Favorites")
         print(favorites)
         for stat in stats{
@@ -184,6 +186,8 @@ extension ViewController{
                 
                 if favorites.contains(statsTemp[i].country){
                     statsTemp[i].favorite = true
+                }else{
+                    statsTemp[i].favorite = false
                 }
             }
 

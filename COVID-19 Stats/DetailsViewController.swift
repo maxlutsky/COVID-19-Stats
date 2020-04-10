@@ -38,16 +38,24 @@ class DetailsViewController: UIViewController {
     var countDataRecovered: [String] = []
     var countDataDead: [String] = []
     var settings:UIBarButtonItem = UIBarButtonItem()
+    
+    let favoritesButtonIcon = UIImage(named: "Star")
+    let favoritesButtonIconFilled = UIImage(named: "StarFilled")
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         countryLabel.text = stats?.country
         let buttonIcon = UIImage(named: "Settings")
-        let favoritesButtonIcon = UIImage(named: "Star")
+        
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
         settings.image = buttonIcon
-        favoritesButtonOutlet.setImage(favoritesButtonIcon, for: .normal)
+        
+        if stats?.favorite ?? false{
+            favoritesButtonOutlet.setImage(favoritesButtonIconFilled, for: .normal)
+        }else{
+            favoritesButtonOutlet.setImage(favoritesButtonIcon, for: .normal)
+        }
         navigationItem.title = "Details"
         navigationItem.rightBarButtonItems = [settings]
         showData()
@@ -138,18 +146,23 @@ class DetailsViewController: UIViewController {
     }
     @IBAction func favoritesButtonAction(_ sender: Any) {
         
-        favoritesButtonOutlet.setImage(UIImage(named: "FilledStar"), for: .normal)
+        var favorites: [String] = UserDefaults.standard.stringArray(forKey: "Favorites") ?? []
+//        var favoritesVar: [String] = favorites ?? []
         
-        
-        let favorites = UserDefaults.standard.stringArray(forKey: "Favorites")
-        var favoritesVar: [String] = favorites ?? []
-        if !(stats?.favorite ?? false){
-            favoritesVar.append(stats!.country)
+        if stats?.favorite ?? false{
+            favoritesButtonOutlet.setImage(favoritesButtonIcon, for: .normal)
+            //remove from favorites
+            if let index = favorites.firstIndex(of: stats!.country) {
+                favorites.remove(at: index)
+            }
+        }else{
+            favoritesButtonOutlet.setImage(favoritesButtonIconFilled, for: .normal)
+            //add to favorites
+            favorites.append(stats!.country)
             stats?.favorite = true
             print(stats!.country)
         }
-
-        UserDefaults.standard.set(favoritesVar, forKey: "Favorites")
+        UserDefaults.standard.set(favorites, forKey: "Favorites")
     }
     
     @objc func openSettings(){
