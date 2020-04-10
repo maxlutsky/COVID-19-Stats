@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     var stats: [Stats] = []
     var filteredStats: [Stats] = []
+    var favoriteStats: [Stats] = []
     
     let searchController = UISearchController(searchResultsController: nil)
     var isSearchBarEmpty: Bool {
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
     var settings:UIBarButtonItem = UIBarButtonItem()
     var favoritesButton:UIBarButtonItem = UIBarButtonItem()
     var favorites = UserDefaults.standard.array(forKey: "Favorites")
+    var displayFavorites = false
 
     
     
@@ -78,12 +80,26 @@ class ViewController: UIViewController {
     
     
     func filterContentForSearchText(_ searchText: String) {
-      filteredStats = stats.filter { (stats: Stats) -> Bool in
-        return stats.country.lowercased().contains(searchText.lowercased())
+        
+        if displayFavorites {
+            filteredStats = favoriteStats.filter { (stats: Stats) -> Bool in
+                return stats.country.lowercased().contains(searchText.lowercased())
+            }
+        }else{
+            filteredStats = stats.filter { (stats: Stats) -> Bool in
+                return stats.country.lowercased().contains(searchText.lowercased())
+            }
+        }
+        tableView.reloadData()
     }
-      
-      tableView.reloadData()
+    
+    func filterForFavorites(){
+        favoriteStats = stats.filter { (stats: Stats) -> Bool in
+            return stats.favorite ?? false
+        }
     }
+    
+    
     
     @objc func openSettings(){
         let settingsViewController = storyboard?.instantiateViewController(identifier: "SettingsViewController") as! SettingsViewController
@@ -91,13 +107,13 @@ class ViewController: UIViewController {
     }
     
     @objc func switchFavorites(){
-        let favorites = UserDefaults.standard.stringArray(forKey: "Favorites")
-        print(favorites)
-        for stat in stats{
-            if stat.favorite ?? false{
-                print(stat)
-            }
+        filterForFavorites()
+        if displayFavorites {
+            displayFavorites = false
+        }else{
+            displayFavorites = true
         }
+        tableView.reloadData()
     }
 }
 
@@ -105,11 +121,16 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-          if isFiltering {
-          return filteredStats.count
+            if isFiltering {
+            return filteredStats.count
         }
-          
-        return stats.count
+        
+        if displayFavorites{
+            return favoriteStats.count
+        }else{
+            return stats.count
+        }
+        
     }
 
     
@@ -118,9 +139,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCellId") as! CountryCell
         
         if isFiltering {
-          cell.addCountry(tempStat: filteredStats[indexPath.row])
+            cell.addCountry(tempStat: filteredStats[indexPath.row])
         } else {
-          cell.addCountry(tempStat: stats[indexPath.row])
+            if displayFavorites{
+                cell.addCountry(tempStat: favoriteStats[indexPath.row])
+            }else{
+                cell.addCountry(tempStat: stats[indexPath.row])
+            }
         }
         return cell
     }
@@ -131,9 +156,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let detailsViewController = storyboard?.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
         navigationController?.pushViewController(detailsViewController, animated: true)
         if isFiltering {
-          detailsViewController.stats = filteredStats[indexPath.row]
+            detailsViewController.stats = filteredStats[indexPath.row]
         } else {
-          detailsViewController.stats = stats[indexPath.row]
+            if displayFavorites{
+                detailsViewController.stats = favoriteStats[indexPath.row]
+            } else {
+                detailsViewController.stats = stats[indexPath.row]
+            }
         }
         
     }
