@@ -29,8 +29,9 @@ class ViewController: UIViewController {
       return searchController.isActive && !isSearchBarEmpty
     }
     var settings:UIBarButtonItem = UIBarButtonItem()
-    var text:UIBarButtonItem = UIBarButtonItem()
-    
+    var favoritesButton:UIBarButtonItem = UIBarButtonItem()
+    var favorites = UserDefaults.standard.array(forKey: "Favorites")
+
     
     
     
@@ -38,8 +39,12 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         let buttonIcon = UIImage(named: "Settings")
+        let favoritesButtonIcon = UIImage(named: "Star")
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
         settings.image = buttonIcon
+        favoritesButton = UIBarButtonItem.init(title: "favorites", style: .plain, target: self, action: #selector(switchfavorites))
+        favoritesButton.image = favoritesButtonIcon
+        navigationItem.leftBarButtonItems = [favoritesButton]
         navigationItem.title = "Covid-19"
         navigationItem.rightBarButtonItems = [settings]
         searchController.searchResultsUpdater = self
@@ -47,6 +52,9 @@ class ViewController: UIViewController {
         searchController.searchBar.placeholder = "Search Countries"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
+        
+        
         
         requestData()
         dataService.fetchDetailsHistoric()
@@ -57,6 +65,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("View APPEARED\n")
         
         if dataService.historicData.count > 0 {
             print(dataService.historicData[0].timeline?.cases["3/21/20"])
@@ -76,6 +85,17 @@ class ViewController: UIViewController {
     @objc func openSettings(){
         let settingsViewController = storyboard?.instantiateViewController(identifier: "SettingsViewController") as! SettingsViewController
         navigationController?.pushViewController(settingsViewController, animated: true)
+    }
+    
+    @objc func switchfavorites(){
+//        stats = applyFavorites(stats: stats)
+        let favorites = UserDefaults.standard.stringArray(forKey: "Favorites")
+        print(favorites)
+        for stat in stats{
+            if stat.favorite ?? false{
+                print(stat)
+            }
+        }
     }
 }
 
@@ -137,8 +157,12 @@ extension ViewController{
                 let model = try decoder.decode([Stats].self, from: dataResponse) //Decode JSON Response Data
                 self.stats = model
                 
+                self.stats = self.applyFavorites(stats: self.stats)
+                
                 DispatchQueue.main.async {
+                    
                     self.tableView.reloadData()
+                    
                 }
                 
                 guard let data = data else { return }
@@ -152,6 +176,19 @@ extension ViewController{
         
     }
     
+    func applyFavorites(stats: [Stats]) -> [Stats]{
+        guard let favorites = UserDefaults.standard.stringArray(forKey: "Favorites") else { print("NOFAVS\n"); return stats }
+        var statsTemp = stats
+          
+            for i in 0 ..< (statsTemp.count - 1){
+                
+                if favorites.contains(statsTemp[i].country){
+                    statsTemp[i].favorite = true
+                }
+            }
+
+        return statsTemp
+    }
 }
 
 

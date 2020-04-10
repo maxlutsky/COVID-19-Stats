@@ -20,6 +20,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var deathLabel: UILabel!
     @IBOutlet weak var deathNumber: UILabel!
 
+    @IBOutlet weak var favoritesButtonOutlet: UIButton!
     @IBOutlet weak var totalCaselabel: UILabel!
     @IBOutlet weak var totalCaseNumber: UILabel!
     
@@ -43,8 +44,10 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         countryLabel.text = stats?.country
         let buttonIcon = UIImage(named: "Settings")
+        let favoritesButtonIcon = UIImage(named: "Star")
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
         settings.image = buttonIcon
+        favoritesButtonOutlet.setImage(favoritesButtonIcon, for: .normal)
         navigationItem.title = "Details"
         navigationItem.rightBarButtonItems = [settings]
         showData()
@@ -132,6 +135,21 @@ class DetailsViewController: UIViewController {
         recoverednumber.text = String(statsUnwraped.deaths)
         
         lineChart.borderColor = UIColor.red
+    }
+    @IBAction func favoritesButtonAction(_ sender: Any) {
+        
+        favoritesButtonOutlet.setImage(UIImage(named: "FilledStar"), for: .normal)
+        
+        
+        let favorites = UserDefaults.standard.stringArray(forKey: "Favorites")
+        var favoritesVar: [String] = favorites ?? []
+        if !(stats?.favorite ?? false){
+            favoritesVar.append(stats!.country)
+            stats?.favorite = true
+            print(stats!.country)
+        }
+
+        UserDefaults.standard.set(favoritesVar, forKey: "Favorites")
     }
     
     @objc func openSettings(){
