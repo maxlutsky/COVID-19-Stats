@@ -33,15 +33,15 @@ class ViewController: UIViewController {
     var favoritesButton:UIBarButtonItem = UIBarButtonItem()
     var favorites = UserDefaults.standard.array(forKey: "Favorites")
     var displayFavorites = false
-
-    
+    let favoritesButtonIcon = UIImage(named: "SmallStar")
+    let favoritesFilledButtonIcon = UIImage(named: "SmallFilledStar")
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         let buttonIcon = UIImage(named: "Settings")
-        let favoritesButtonIcon = UIImage(named: "Star")
+        let favoritesButtonIcon = UIImage(named: "SmallStar")
         settings = UIBarButtonItem.init(title: "Settings", style: .plain, target: self, action: #selector(openSettings))
         settings.image = buttonIcon
         favoritesButton = UIBarButtonItem.init(title: "favorites", style: .plain, target: self, action: #selector(switchFavorites))
@@ -110,8 +110,10 @@ class ViewController: UIViewController {
         filterForFavorites()
         if displayFavorites {
             displayFavorites = false
+            favoritesButton.image = favoritesButtonIcon
         }else{
             displayFavorites = true
+            favoritesButton.image = favoritesFilledButtonIcon
         }
         tableView.reloadData()
     }
@@ -226,8 +228,8 @@ extension ViewController{
 
 
 extension ViewController: UISearchResultsUpdating {
-  func updateSearchResults(for searchController: UISearchController) {
-    let searchBar = searchController.searchBar
-    filterContentForSearchText(searchBar.text!)
-  }
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
 }
