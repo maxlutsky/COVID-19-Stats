@@ -175,7 +175,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 extension ViewController{
     
     func requestData(){
-        guard let url = URL(string: "https://corona.lmao.ninja/countries") else { return }
+        guard let url = URL(string: "https://corona.lmao.ninja/v2/countries") else { return }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
         guard let dataResponse = data,
