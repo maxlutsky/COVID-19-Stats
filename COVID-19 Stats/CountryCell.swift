@@ -14,9 +14,7 @@ class CountryCell: UITableViewCell {
     @IBOutlet weak var casesNumber: UILabel!
     @IBOutlet weak var deathNumber: UILabel!
     
-    
-    
-    
+
     func addCountry(tempStat: Stats){
         countryName.text = tempStat.country
         casesNumber.text = String(tempStat.cases)

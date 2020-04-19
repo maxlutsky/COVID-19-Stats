@@ -10,14 +10,11 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController {
-    
-    let dataService = DataService.shared
-    
+        
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
+
     var stats: [Stats] = []
     var filteredStats: [Stats] = []
     var favoriteStats: [Stats] = []
@@ -54,28 +51,17 @@ class ViewController: UIViewController {
         searchController.searchBar.placeholder = "Search Countries"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
-        
-        
-        
+
         requestData()
-        dataService.fetchDetailsHistoric()
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("View APPEARED\n")
         if !(stats.isEmpty){
             stats = applyFavorites(stats: stats)
-            print("DATA UDPATED")
         }
-        if dataService.historicData.count > 0 {
-            print(dataService.historicData[0].timeline?.cases["3/21/20"])
-        }
-
     }
     
     
@@ -98,7 +84,6 @@ class ViewController: UIViewController {
             return stats.favorite ?? false
         }
     }
-    
     
     
     @objc func openSettings(){
@@ -185,9 +170,8 @@ extension ViewController{
                     
             }
             do {
-                //here dataResponse received from a network request
                 let decoder = JSONDecoder()
-                let model = try decoder.decode([Stats].self, from: dataResponse) //Decode JSON Response Data
+                let model = try decoder.decode([Stats].self, from: dataResponse)
                 self.stats = model
                 
                 self.stats = self.applyFavorites(stats: self.stats)
@@ -197,10 +181,7 @@ extension ViewController{
                     self.tableView.reloadData()
                     
                 }
-                
-                guard let data = data else { return }
-                self.dataService.getFromCoreDataAllInstance(data: data)
-                
+                               
              } catch let parsingError {
                 print("Error", parsingError)
            }
@@ -210,7 +191,7 @@ extension ViewController{
     }
     
     func applyFavorites(stats: [Stats]) -> [Stats]{
-        guard let favorites = UserDefaults.standard.stringArray(forKey: "Favorites") else { print("NOFAVS\n"); return stats }
+        guard let favorites = UserDefaults.standard.stringArray(forKey: "Favorites") else { return stats }
         var statsTemp = stats
           
             for i in 0 ..< (statsTemp.count - 1){
@@ -228,8 +209,8 @@ extension ViewController{
 
 
 extension ViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        filterContentForSearchText(searchBar.text!)
-    }
+        func updateSearchResults(for searchController: UISearchController) {
+            let searchBar = searchController.searchBar
+            filterContentForSearchText(searchBar.text!)
+        }
 }

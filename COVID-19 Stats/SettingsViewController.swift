@@ -24,10 +24,8 @@ class SettingsViewController: UIViewController {
     
     @IBAction func testSwitch(_ sender: Any) {
         if testSwitchOutlet.isOn{
-            print("Switch was turned on")
             UserDefaults.standard.set(true, forKey: "testSwitch")
         } else {
-            print("Switch was turned off")
             UserDefaults.standard.set(false, forKey: "testSwitch")
         }
     }

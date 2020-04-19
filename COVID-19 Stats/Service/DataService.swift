@@ -16,18 +16,18 @@ class DataService {
                         "3/11/20","3/12/20","3/13/20","3/14/20","3/15/20","3/16/20","3/17/20","3/18/20","3/19/20",
                         "3/20/20","3/21/20","3/22/20"]
     
-    var historicData: [HistoricData] = []
+//    var historicData: [HistoricData] = []
     
     let persistenceManager = PersistenceManager.shared
     let restService = RestService.shared
     
     func fetchDetailsHistoric() {
-        let fullURL = "https://corona.lmao.ninja/historical"
-        restService.fetchGenericData(fullURL, httpMethod: .get) { (data: [HistoricData]) in
-            self.historicData = data
-            let count = data[0].timeline?.cases["3/21/20"]
-            print(count)
-        }
+//        let fullURL = "https://corona.lmao.ninja/historical"
+//        restService.fetchGenericData(fullURL, httpMethod: .get) { (data: [HistoricData]) in
+//            self.historicData = data
+//            let count = data[0].timeline?.cases["3/21/20"]
+//            print(count)
+//        }
     }
     
     func setDataToCoreData(_ data: String) {

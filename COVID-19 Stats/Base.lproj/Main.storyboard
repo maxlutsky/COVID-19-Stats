@@ -248,35 +248,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICr-ve-uLw" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="278" width="374" height="604"/>
-                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6f-7Q-pR2">
-                                <rect key="frame" x="26" y="240" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Total"/>
-                                <connections>
-                                    <action selector="showTotal:" destination="uAi-lM-WNh" eventType="touchUpInside" id="H5u-36-gan"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Tl-QR-Q3E">
-                                <rect key="frame" x="303" y="240" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Dead"/>
-                                <connections>
-                                    <action selector="showDead:" destination="uAi-lM-WNh" eventType="touchUpInside" id="hmY-BC-aLt"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWh-QY-iWz">
-                                <rect key="frame" x="140" y="240" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Recovered"/>
-                                <connections>
-                                    <action selector="showRecovered:" destination="uAi-lM-WNh" eventType="touchUpInside" id="NYF-5T-nzo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzM-4R-FcA">
                                 <rect key="frame" x="348" y="79" width="50" height="50"/>
                                 <constraints>
@@ -297,7 +268,6 @@
                             <constraint firstItem="gzM-4R-FcA" firstAttribute="centerY" secondItem="1ge-k9-t6J" secondAttribute="centerY" id="7EA-ik-RXW"/>
                             <constraint firstItem="HBd-9x-ydN" firstAttribute="top" secondItem="Ybl-0I-DIP" secondAttribute="bottom" constant="8" id="7PQ-uZ-Aes"/>
                             <constraint firstItem="Ybl-0I-DIP" firstAttribute="top" secondItem="QNJ-Io-Xjn" secondAttribute="bottom" constant="36" id="EHS-PR-dNN"/>
-                            <constraint firstItem="ICr-ve-uLw" firstAttribute="leading" secondItem="aZW-jU-AhI" secondAttribute="leading" constant="20" id="GlD-P5-riX"/>
                             <constraint firstItem="QNJ-Io-Xjn" firstAttribute="leading" secondItem="1ge-k9-t6J" secondAttribute="trailing" constant="16" id="J8p-YT-MHH"/>
                             <constraint firstItem="rl5-yk-Ppm" firstAttribute="top" secondItem="mZc-HV-zK1" secondAttribute="bottom" constant="8" id="Owu-B0-btx"/>
                             <constraint firstItem="m9j-Zo-lsa" firstAttribute="leading" secondItem="1ge-k9-t6J" secondAttribute="leading" id="Pr3-jk-TvL"/>
@@ -305,16 +275,13 @@
                             <constraint firstItem="1ge-k9-t6J" firstAttribute="top" secondItem="aZW-jU-AhI" secondAttribute="top" constant="40" id="QxF-D5-fC6"/>
                             <constraint firstItem="ZH0-X2-IUv" firstAttribute="top" secondItem="1ge-k9-t6J" secondAttribute="top" id="Rnn-AM-fQf"/>
                             <constraint firstItem="mZc-HV-zK1" firstAttribute="top" secondItem="1ge-k9-t6J" secondAttribute="bottom" constant="36" id="TRX-gn-CTL"/>
-                            <constraint firstItem="ICr-ve-uLw" firstAttribute="bottom" secondItem="aZW-jU-AhI" secondAttribute="bottom" constant="20" id="XGI-8F-w7p"/>
                             <constraint firstItem="m9j-Zo-lsa" firstAttribute="top" secondItem="1ge-k9-t6J" secondAttribute="bottom" constant="36" id="Zuj-XT-yBI"/>
                             <constraint firstItem="gGE-CG-WaH" firstAttribute="top" secondItem="m9j-Zo-lsa" secondAttribute="bottom" constant="8" id="b06-EB-eXh"/>
                             <constraint firstItem="gGE-CG-WaH" firstAttribute="leading" secondItem="1ge-k9-t6J" secondAttribute="leading" id="b1z-LB-fvM"/>
                             <constraint firstItem="mZc-HV-zK1" firstAttribute="leading" secondItem="m9j-Zo-lsa" secondAttribute="trailing" constant="33" id="fBC-FT-QkJ"/>
-                            <constraint firstItem="aZW-jU-AhI" firstAttribute="trailing" secondItem="ICr-ve-uLw" secondAttribute="trailing" constant="20" id="heA-mp-7gA"/>
                             <constraint firstItem="QNJ-Io-Xjn" firstAttribute="bottom" secondItem="1ge-k9-t6J" secondAttribute="bottom" id="soQ-SR-JTt"/>
                             <constraint firstItem="aZW-jU-AhI" firstAttribute="trailing" secondItem="Ybl-0I-DIP" secondAttribute="trailing" constant="16" id="wNj-n7-4ZC"/>
                             <constraint firstItem="1ge-k9-t6J" firstAttribute="leading" secondItem="aZW-jU-AhI" secondAttribute="leading" constant="20" id="yfX-sK-VT8"/>
-                            <constraint firstItem="ICr-ve-uLw" firstAttribute="top" secondItem="gGE-CG-WaH" secondAttribute="bottom" constant="60" id="yx0-4r-G3H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aZW-jU-AhI"/>
                     </view>
@@ -323,7 +290,6 @@
                         <outlet property="deathLabel" destination="ZH0-X2-IUv" id="VCj-D9-SuV"/>
                         <outlet property="deathNumber" destination="QNJ-Io-Xjn" id="BTp-wb-OBZ"/>
                         <outlet property="favoritesButtonOutlet" destination="gzM-4R-FcA" id="a4F-6b-6YU"/>
-                        <outlet property="lineChart" destination="ICr-ve-uLw" id="zMY-QN-75Z"/>
                         <outlet property="newCaseLabel" destination="mZc-HV-zK1" id="jX5-RR-5qe"/>
                         <outlet property="newCaseNumber" destination="rl5-yk-Ppm" id="eLo-Zy-u33"/>
                         <outlet property="recoverednumber" destination="HBd-9x-ydN" id="rCp-DW-G3n"/>
