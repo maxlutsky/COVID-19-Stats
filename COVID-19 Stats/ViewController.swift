@@ -66,18 +66,18 @@ class ViewController: UIViewController {
     
     
     func filterContentForSearchText(_ searchText: String) {
-        
-        if displayFavorites {
-            filteredStats = favoriteStats.filter { (stats: Stats) -> Bool in
-                return stats.country.lowercased().contains(searchText.lowercased())
-            }
-        }else{
-            filteredStats = stats.filter { (stats: Stats) -> Bool in
-                return stats.country.lowercased().contains(searchText.lowercased())
-            }
+      
+      if displayFavorites {
+        filteredStats = favoriteStats.filter { (stats: Stats) -> Bool in
+          return stats.country.lowercased().contains(searchText.lowercased())
         }
-        tableView.reloadData()
-    }
+      }else{
+        filteredStats = stats.filter { (stats: Stats) -> Bool in
+          return stats.country.lowercased().contains(searchText.lowercased())
+        }
+      }
+      tableView.reloadData()
+  }
     
     func filterForFavorites(){
         favoriteStats = stats.filter { (stats: Stats) -> Bool in
@@ -107,18 +107,18 @@ class ViewController: UIViewController {
     //MARK: Extensions
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if isFiltering {
-            return filteredStats.count
-        }
-        
-        if displayFavorites{
-            return favoriteStats.count
-        }else{
-            return stats.count
-        }
-        
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if isFiltering {
+      return filteredStats.count
     }
+    
+    if displayFavorites{
+      return favoriteStats.count
+    }else{
+      return stats.count
+    }
+    
+  }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
